@@ -1,4 +1,4 @@
-import { useContext, createContext, useReducer, useEffect, useState} from "react";
+import { useContext, createContext, useReducer, useEffect } from "react";
 
 export const UserContext =  createContext("");
 const usuarios_db = localStorage.getItem('usuarios') ?
@@ -11,8 +11,6 @@ export const UserProvider = ({children}) => {
     useEffect(() => {
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
     }, [usuarios]);
-
-    let [logar, setLogar] = useState(false);
 
     return (
         <>

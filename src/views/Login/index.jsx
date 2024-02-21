@@ -3,19 +3,20 @@ import { CampoForm } from "../../components/CampoForm";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { useUsuarios } from "../../contexts/UserContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const Login = () => {
     const [usuario, setUsuario] = useState("");
     const [senha, setSenha] = useState("");
     const store = useUsuarios();
+    const navigate = useNavigate();
+
 
     const salvar = () => {
-        let valid_salvar = false;
-
         store.usuarios.forEach((u) => {
             if ((u.usuario === usuario) && (senha === u.senha)) {
-                valid_salvar = true;
+                localStorage.setItem('login', JSON.stringify({id: u.id, email: u.email}));
+                navigate("/livros");
             }
         });
     }

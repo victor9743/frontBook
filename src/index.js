@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { UserProvider } from "./contexts/UserContext";
 import App from './App';
 import { CadastroUsuario } from './views/CadastroUsuario';
+import { Livros } from './views/Livros';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,5 +16,8 @@ root.render(
         <Route path='/usuario/novo' element={<CadastroUsuario />} />
       </Routes>
     </UserProvider>
+      <Routes>
+        <Route path='/livros' element={<Livros />} />
+      </Routes>
   </BrowserRouter>
 );
